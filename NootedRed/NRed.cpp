@@ -50,6 +50,10 @@ void NRed::init() {
     } else if (BaseDeviceInfo::get().modelType == WIOKit::ComputerModel::ComputerLaptop) {
         this->attributes.setBacklightEnabled();
     }
+    if (checkKernelArgument("AMDBacklightForce"))
+    {
+        this->attributes.setBacklightEnabled()
+    }
 
     switch (getKernelVersion()) {
         case KernelVersion::Catalina:
